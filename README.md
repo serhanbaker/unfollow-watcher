@@ -17,5 +17,15 @@ It's pretty simple actually. Gets twitter followers, loads them into Redis with 
 and finally gets difference with something like `SDIFF followers followers_new`. Then deletes both sets and repeats the process
 The diff won't contain new followers, because it only gets the items that have in A, but not B
 
-### Author
+## Author
+
 [Serhan Baker](http://serhanbaker.com)
+
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

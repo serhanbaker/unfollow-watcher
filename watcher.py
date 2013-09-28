@@ -3,6 +3,7 @@ import time
 import tweepy
 import twitter_settings
 import redis
+import sys
 
 
 def main():
@@ -43,6 +44,12 @@ def main():
                 '\nUnfollower list for %s \n----------------------------------' %
                 (user.screen_name))
             print diff
+            if(sys.argv[1] == '-m'):
+                mention_message = twitter_settings.mention
+                for i in range(len(diff)):
+                    tweet = '@{0} {1}'.format(diff[i], mention_message)
+                    api.update_status(tweet)
+                    print ('\n-->Sent mention to @%s' % (diff[i]))
             user = api.me()
             print ('\n-->There are %d followers remaining' %
                    (user.followers_count))
